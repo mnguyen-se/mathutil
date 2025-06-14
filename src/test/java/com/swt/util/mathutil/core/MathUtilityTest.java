@@ -1,27 +1,30 @@
 package com.swt.util.mathutil.core;
 
-import org.junit.jupiter.api.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class MathUtilityTest {
-
-    @Test //@test tương đương với main, code trong hàm này sẽ run nhu hàm main
-    //biến mỗi test case thành test run thành main để chạy
-    public void verifyFactorialGivenRightArg0RunWell() {
-        //0! có là 1 hay ko
-        assertEquals(1,MathUtility.getFactorial(0));
-    }
-@Test
-    public void verifyFactorialGivenRightArg1RunWell() {
-        //0! có là 1 hay ko
-        assertEquals(1,MathUtility.getFactorial(1));
-    }
+import static org.testng.Assert.*;
+public class MathUtilityTest {
     @Test
-    public void verifyFactorialGivenRightArgRunWell() {
-        //0! có là 1 hay ko
-        assertEquals(2,MathUtility.getFactorial(2));
-        assertEquals(6,MathUtility.getFactorial(3));
-        assertEquals(24,MathUtility.getFactorial(4));
+    public void testFactorialGivenRightArgumentReturnsWell() {
+        // Test các giá trị hợp lệ
+        Assert.assertEquals(MathUtility.getFactorial(0), 1);
+        Assert.assertEquals(MathUtility.getFactorial(1), 1);
+        Assert.assertEquals(MathUtility.getFactorial(2), 2);
+        Assert.assertEquals(MathUtility.getFactorial(3), 6);
+        Assert.assertEquals(MathUtility.getFactorial(5), 120);
+        Assert.assertEquals(MathUtility.getFactorial(6), 720);
+        Assert.assertEquals(MathUtility.getFactorial(20), 2432902008176640000L);
     }
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testFactorialGivenWrongArgumentThrowsException_Negative() {
+        MathUtility.getFactorial(-5);
+    }
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testFactorialGivenWrongArgumentThrowsException_TooLarge() {
+        MathUtility.getFactorial(21);
+    }
+    
 }

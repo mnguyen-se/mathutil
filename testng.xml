@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Math Utility Test Suite">
+    <test name="Math Utility Test">
+        <classes>
+            <class name="com.swt.util.mathutil.core.MathUtilityTest"/>
+        </classes>
+    </test>
+</suite>
