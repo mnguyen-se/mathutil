@@ -2,7 +2,7 @@
 <suite name="Math Utility Test Suite">
     <test name="Math Utility Test">
         <classes>
-            <class name="com.swt.util.mathutil.core.MathUtilityTest"/>
+            <class name="com.swt.util.mathutil.core.MathUtilityTestP"/>
         </classes>
     </test>
 </suite>
