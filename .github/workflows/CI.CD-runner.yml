@@ -47,6 +47,6 @@ jobs:
             CI đã hoàn tất và đây là báo cáo coverage từ JaCoCo.
 
             Trân trọng.
-          to: thanhndse182854@fpt.edu.vn
+          to: nguyennmse184571@fpt.edu.vn
           from: minhnguyen08112004@gmail.com
           attachments: jacoco-report.zip
