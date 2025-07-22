@@ -36,8 +36,8 @@ jobs:
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
-          server_port: 587        # dùng TLS
-          secure: true            # dùng TLS thay vì SSL
+          server_port: 587          # ✅ đúng cổng cho STARTTLS
+          secure: true              # ✅ bật TLS
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "✅ JaCoCo Test Coverage Report"
@@ -49,5 +49,6 @@ jobs:
             Trân trọng.
           to: minhnguyen08112004@gmail.com
           from: nguyennmse184571@fpt.edu.vn
-          attachments: |
-            jacoco-report.zip
+          attachments: jacoco-report.zip
+
+
