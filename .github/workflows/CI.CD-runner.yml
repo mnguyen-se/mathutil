@@ -33,7 +33,7 @@ jobs:
         run: zip -r jacoco-report.zip target/site/jacoco
 
       - name: 📧 Send coverage report email
-        uses: mails/send-email@v1.2.0
+        uses: cinotify/send-email@v1.2.0
         with:
           smtp-server: smtp.gmail.com
           smtp-port: 587
@@ -49,6 +49,3 @@ jobs:
 
             Trân trọng.
           attachments: jacoco-report.zip
-
-
-
