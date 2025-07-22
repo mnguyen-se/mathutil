@@ -1,17 +1,14 @@
 package com.swt.util;
 
 import com.swt.util.mathutil.core.MathUtility;
+import org.junit.Test;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
 
-    verifyFactorialGivenRightArg0RunWell();
-    verifyFactorialGivenRightArg1RunWell();
-    verifyFactorialGivenRightArg2RunWell();
-    verifyFactorialGivenRightArg3RunWell();
-    verifyFactorialGivenRightArg4RunWell();
+
     }
 
     //test thử hàm tính giai thừa, gọi trong main()
@@ -23,7 +20,9 @@ public class Main {
     // expected result : 1as actual result : 1
     // status : passed or failed phải chờ
 
-    public static void verifyFactorialGivenRightArg4RunWell(){
+
+    @Test
+    public void verifyFactorialGivenRightArg4RunWell(){
         int n = 4;
         long expected = 24; // hi vọng trả về 1 nếu 1!
         long actual = MathUtility.getFactorial(n);
@@ -32,8 +31,8 @@ public class Main {
         System.out.println("5! = 120  actual = " + MathUtility.getFactorial(5) );
         System.out.println("6! = 720  actual = " + MathUtility.getFactorial(6) );
     }
-
-    public static void verifyFactorialGivenRightArg3RunWell(){
+    @Test
+    public  void verifyFactorialGivenRightArg3RunWell(){
         int n = 3;
         long expected = 6; // hi vọng trả về 1 nếu 1!
         long actual = MathUtility.getFactorial(n);
@@ -41,7 +40,8 @@ public class Main {
         System.out.println("3! = " + expected + " actual = " + actual );
     }
 
-    public static void verifyFactorialGivenRightArg2RunWell(){
+    @Test
+    public  void verifyFactorialGivenRightArg2RunWell(){
         int n = 2;
         long expected = 2; // hi vọng trả về 1 nếu 1!
         long actual = MathUtility.getFactorial(n);
@@ -49,7 +49,8 @@ public class Main {
         System.out.println("2! = " + expected + " actual = " + actual );
     }
 
-    public static void verifyFactorialGivenRightArg1RunWell(){
+    @Test
+    public  void verifyFactorialGivenRightArg1RunWell(){
         int n = 1;
         long expected = 1; // hi vọng trả về 1 nếu 1!
         long actual = MathUtility.getFactorial(n);
@@ -57,7 +58,8 @@ public class Main {
         System.out.println("1! = " + expected + " actual = " + actual );
     }
 
-    public static void verifyFactorialGivenRightArg0RunWell(){
+    @Test
+    public void verifyFactorialGivenRightArg0RunWell(){
         int n = 0;
         long expected = 1; // hi vọng trả về 1 nếu 0!
         long actual = MathUtility.getFactorial(n);
