@@ -30,17 +30,13 @@ jobs:
           path: target/site/jacoco/
 
       - name: 📦 Zip JaCoCo report
-        run: zip -r jacoco-report.zip target/site/jacoco
+        run: |
+          zip -r jacoco-report.zip target/site/jacoco
 
       - name: 📧 Send coverage report email
-        uses: cinotify/send-email@v1.2.0
+        uses: dawidd6/action-send-mail@v6
         with:
-          smtp-server: smtp.gmail.com
-          smtp-port: 587
-          smtp-username: ${{ secrets.EMAIL_USERNAME }}
-          smtp-password: ${{ secrets.EMAIL_PASSWORD }}
-          from: nguyennmse184571@fpt.edu.vn
-          to: minhnguyen08112004@gmail.com
+          connection_url: smtp+starttls://${{ secrets.EMAIL_USERNAME }}:${{ secrets.EMAIL_PASSWORD }}@smtp.gmail.com:587
           subject: "✅ JaCoCo Test Coverage Report"
           body: |
             Chào bạn,
@@ -48,4 +44,6 @@ jobs:
             CI đã hoàn tất và đây là báo cáo coverage từ JaCoCo.
 
             Trân trọng.
+          to: minhnguyen08112004@gmail.com
+          from: minhnguyen08112004@gmail.com
           attachments: jacoco-report.zip
