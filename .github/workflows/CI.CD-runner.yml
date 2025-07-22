@@ -33,13 +33,14 @@ jobs:
         run: zip -r jacoco-report.zip target/site/jacoco
 
       - name: 📧 Send coverage report email
-        uses: dawidd6/action-send-mail@v3
+        uses: mails/send-email@v1.2.0
         with:
-          server_address: smtp.gmail.com
-          server_port: 587          # ✅ đúng cổng cho STARTTLS
-          secure: true              # ✅ bật TLS
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
+          smtp-server: smtp.gmail.com
+          smtp-port: 587
+          smtp-username: ${{ secrets.EMAIL_USERNAME }}
+          smtp-password: ${{ secrets.EMAIL_PASSWORD }}
+          from: nguyennmse184571@fpt.edu.vn
+          to: minhnguyen08112004@gmail.com
           subject: "✅ JaCoCo Test Coverage Report"
           body: |
             Chào bạn,
@@ -47,8 +48,7 @@ jobs:
             CI đã hoàn tất và đây là báo cáo coverage từ JaCoCo.
 
             Trân trọng.
-          to: minhnguyen08112004@gmail.com
-          from: nguyennmse184571@fpt.edu.vn
           attachments: jacoco-report.zip
+
 
 
