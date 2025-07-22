@@ -32,18 +32,3 @@ jobs:
       - name: 📦 Zip JaCoCo report
         run: |
           zip -r jacoco-report.zip target/site/jacoco
-
-      - name: 📧 Send coverage report email
-        uses: dawidd6/action-send-mail@v6
-        with:
-          connection_url: smtp+starttls://${{ secrets.EMAIL_USERNAME }}:${{ secrets.EMAIL_PASSWORD }}@smtp.gmail.com:587
-          subject: "✅ JaCoCo Test Coverage Report"
-          body: |
-            Chào bạn,
-
-            CI đã hoàn tất và đây là báo cáo coverage từ JaCoCo.
-
-            Trân trọng.
-          to: minhnguyen08112004@gmail.com
-          from: minhnguyen08112004@gmail.com
-          attachments: jacoco-report.zip
