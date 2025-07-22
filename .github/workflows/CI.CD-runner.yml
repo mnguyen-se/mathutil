@@ -2,7 +2,7 @@ name: Java CI/CD with JaCoCo
 
 on:
   push:
-    branches: [ "main" ] # hoặc "master", tùy tên nhánh
+    branches: [ "main" ]
   pull_request:
 
 jobs:
@@ -29,3 +29,23 @@ jobs:
           name: jacoco-report
           path: target/site/jacoco/
 
+      - name: 📦 Zip JaCoCo report
+        run: zip -r jacoco-report.zip target/site/jacoco
+
+      - name: 📧 Send coverage report email
+        uses: mattnotmitt/send-email@v1
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "✅ JaCoCo Test Coverage Report"
+          body: |
+            Chào bạn,
+
+            Đây là báo cáo coverage từ JaCoCo sau khi chạy CI.
+
+            Trân trọng.
+          to: thanhndse182854@fpt.edu.vn
+          from: minhnguyen08112004@gmail.com
+          attachments: jacoco-report.zip
