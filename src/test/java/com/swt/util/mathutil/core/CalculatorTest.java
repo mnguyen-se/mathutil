@@ -4,33 +4,37 @@ package com.swt.util.mathutil.core;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-public class CalculatorTest {
+ class CalculatorTest {
 
     Calculator calc = new Calculator();
 
     @Test
-    public void testAdd() {
+    void testAdd() {
         assertEquals(5, calc.add(2, 3));
-        assertEquals(5, calc.add(2, 3)); // trùng dữ liệu
+        assertEquals(5, calc.add(2, 3));
     }
+     void testAdd1() {
+         assertEquals(5, calc.add(2, 3));
+         assertEquals(5, calc.add(2, 3));
+     }
 
     @Test
-    public void testSubtract() {
+    void testSubtract() {
         assertEquals(1, calc.subtract(4, 3));
     }
 
     @Test
-    public void testMultiply() {
+    void testMultiply() {
         assertEquals(6, calc.multiply(2, 3));
     }
 
     @Test
-    public void testDivide() {
+    void testDivide() {
         assertEquals(2, calc.divide(6, 3));
     }
 
     @Test
-    public void testDivideByZero() {
+    void testDivideByZero() {
         Exception e = assertThrows(IllegalArgumentException.class, () -> {
             calc.divide(5, 0);
         });
@@ -38,8 +42,18 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testIsEven() {
+    void testIsEven() {
         assertTrue(calc.isEven(4));
         assertFalse(calc.isEven(3));
+    }
+
+    @Test
+    void testEvaluateGrade() {
+        assertEquals("Excellent", calc.evaluateGrade(95));
+        assertEquals("Good", calc.evaluateGrade(80));
+        assertEquals("Pass", calc.evaluateGrade(60));
+        assertEquals("Fail", calc.evaluateGrade(30));
+        assertEquals("Invalid", calc.evaluateGrade(-10));
+        assertEquals("Invalid", calc.evaluateGrade(110));
     }
 }
