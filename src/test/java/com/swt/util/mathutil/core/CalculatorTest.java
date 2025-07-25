@@ -13,10 +13,6 @@ import org.junit.jupiter.api.Test;
         assertEquals(5, calc.add(2, 3));
         assertEquals(5, calc.add(2, 3));
     }
-     void testAdd1() {
-         assertEquals(5, calc.add(2, 3));
-         assertEquals(5, calc.add(2, 3));
-     }
 
     @Test
     void testSubtract() {
