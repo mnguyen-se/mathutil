@@ -43,8 +43,8 @@ jobs:
         with:
           server_address: smtp.gmail.com
           server_port: 465
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
+          username: nguyennmse184571@fpt.edu.vn
+          password: nymgmkxdwumbeceg
           subject: "✅ Java CI/CD Build Completed with JaCoCo Report"
           body: |
             Hello team,
