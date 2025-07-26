@@ -38,7 +38,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📧 Send Email Notification
+      - name: 📥 Download JaCoCo artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: jacoco-report
+          path: jacoco/
+
+      - name: 📦 Zip downloaded report
+        run: zip -r jacoco-report.zip jacoco/
+
+      - name: 📧 Send Email Notification with Attachment
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
@@ -50,12 +59,10 @@ jobs:
             Hello team,
 
             The Java project build and test process has completed successfully.
-            A JaCoCo test coverage report has been generated and uploaded as an artifact.
-
-            You can download the report from the GitHub Actions run:
-            - Navigate to the Actions tab → select latest workflow run → download artifact: `jacoco-report`
+            A JaCoCo test coverage report has been attached in this email.
 
             Best regards,  
             GitHub Actions Bot 🤖
           to: hungttse184584@fpt.edu.vn
           from: GitHub CI/CD <minhnguyen08112004@gmail.com>
+          attachments: jacoco-report.zip
